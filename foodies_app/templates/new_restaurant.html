@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./../static/css/new_restaurant.cs') }}">
+    <link rel="stylesheet" href="./../static/css/new_restaurant.css">
+    <title>New restaurant</title>
+</head>
+<body>
+    <nav>
+        <section class="navAbove">
+            <div><img src="./../static/img/foodiesGreen.png" alt=""></div>
+            <div class="topnav">
+                <ul id="menu">
+                    <li>
+                        <a id= "menu" href=""><img src="./../static/img/menu-green.png" alt=""></a>
+                        <ul class="hidden">
+                            <li><a href="">new</a></li>
+                            <li><a href="">search</a></li>
+                            <li><a href="">account</a></li>
+                            <li><a href="">logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </nav>
+
+    <main>    
+        <section class="leftSide">
+            <form class="plantTree" action="/create/tree" method="POST">
+                <h1>Save your favorite restaurant</h1>
+                <ul class="addRest">
+                {% with messages = get_flashed_messages(category_filter=['tree']) %}
+                    {% if messages %}
+                    <li class="addInfo">
+                        <strong>Uupss!</strong>
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                    </li>
+                    {% endif %}
+                {% endwith %}
+                    <li class="addInfo">
+                        <label for="name">
+                            Name:
+                        </label>
+                        <input type="text" id="name" name="name" />
+                    </li>
+                    <li class="addInfo">
+                        <label for="location">
+                            Location:
+                        </label>
+                        <input type="text" id="location" name="location" />
+                    </li>
+                    <li class="addInfo">
+                        <label for="reason">
+                            Reason:
+                        </label>
+                        <input type="text" id="reason" name="reason" />
+                    </li>
+                    <li>
+                        <button class= "save" type="submit" value="add_tree">
+                            Save
+                        </button>
+                    </li>
+                </ul>
+            </form>
+        </section>
+
+</main>
+</body>
+</html>

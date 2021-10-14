@@ -1,0 +1,472 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin-top: 250px;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navAbove{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 70px;
+    background-color: rgb(219, 227, 231);
+    
+    
+
+}
+
+.navAbove > div > img{
+    width: 500px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    
+}
+
+#menu{
+    list-style: none;
+    padding-top: 20px;
+    
+}
+
+#menu > img{
+    width: 60px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-right: 50px;
+}
+
+.hidden{
+    list-style: none;
+    position: fixed;
+    right: 20px;
+    margin-top: 12px;
+}
+
+/*Hover state for top level links*/
+li:hover a {
+    color: black;
+    
+}
+/*Style for dropdown links*/
+li:hover ul a {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 40px;
+    
+
+}
+/*Hover state for dropdown links*/
+li:hover ul a:hover {
+    color: #fff;
+}
+
+/*Hide dropdown links until they are needed*/
+li ul {
+    display: none;
+    background: #138c83;
+    
+    
+}
+
+li ul li:hover {
+    background: #1cc7bb;
+    padding: 20px;
+    
+}
+
+/*Make dropdown links vertical*/
+li ul li {
+    display: block;
+    float: none;
+    padding: 20px;
+    
+    
+}
+/*Prevent text wrapping*/
+li ul li a {
+    width: 200px;
+    min-width: 100%;
+    font-size: 50px;
+    text-decoration: none;
+    
+}
+/*Display the dropdown on hover*/
+ul li a:hover + .hidden, .hidden:hover {
+    display: block;
+    text-align: end;
+}
+
+
+nav > section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+
+
+
+table{
+    width: 2100px;
+}
+
+thead{
+    border: 0;
+    margin: 0;
+}
+
+thead > tr{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 30px;
+    border: 0;
+    
+    
+}
+
+thead > tr >th{
+    flex: 1;
+    line-height: 150px;
+    height: 150px;
+    
+
+}
+
+.titleTable{
+    font-size: 60px;
+    color: #0f6d66;
+}
+
+.tableTileSpace{
+    background-color: #138c83;
+    color: white;
+
+}
+
+.favtable{
+    font-size: 65px;
+    margin-bottom: 40px;
+    color: #7a7774
+}
+
+
+
+.b3{
+    flex: 1;
+    line-height: 100px;
+    height: 100px;
+}
+
+#outerline{
+    border: none;
+}
+
+.b4{
+    flex: 1;
+    border-right: 2px solid white;
+    line-height: 100px;
+    height: 100px;
+    
+}
+
+#outerline1{
+    border: none;
+    
+}
+
+.b3 > a{
+    margin-left: 15px;
+}
+
+.b3 > div > a{
+    margin-left: 40px;
+}
+
+
+.links{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.recomendations{
+    background-color: #d9c2a8;
+    width: 2100px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.todayRecom{
+    margin: 0px;
+}
+
+tbody{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    margin-bottom: 150px;
+    border: 0;
+    
+}
+
+
+tbody > tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 70px;
+    text-align: center;
+    border: 0;
+    background-color: #98d1cd;
+
+
+}
+
+.secondTR{
+    background-color: #d9c2a8;
+}
+
+tbody > tr >td{
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 0;
+}
+
+input{
+    font-size: 30px;
+    width: 250px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+}
+
+.actions{
+    
+    color: #0b625d;
+
+}
+
+tbody > tr >td >a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.save{
+    text-decoration: none;
+    color: black;
+    font-size: 70px;
+    border: none;
+    background-color: #51aaa4;
+    color: #0b625d;
+    margin-top: 50px;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+
+
+button:hover{
+    cursor: pointer;
+    color: white;
+    background-color: #1cc7bb;
+}
+
+.navBelow{
+    margin-top: 40px;
+}
+
+.navBelow > p{
+    font-size: 40px;
+    padding-top: 30px;
+}
+
+.righNavTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+
+
+.leftSide{
+    width: 800px;
+}
+
+form > h1{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 80px;
+    color: #138c83;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 950px;
+    
+}
+
+table{
+    width: 1900px;
+}
+
+thead > tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 40px;
+    margin: 0;
+    border-bottom: 5px solid black;
+}
+
+
+.addInfo{
+    font-size: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.addInfo > input, select{
+    width: 650px;
+    margin-top: 20px;
+    font-size: 50px;
+    padding: 10px 20px 10px 20px;
+}
+
+.addRest{
+    background-color: #98d1cd;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    margin: 25px;
+    padding: 100px 100px;
+    width: 700px;
+    list-style: none;
+    border-radius: 10px;
+}
+
+@media only screen and (min-width: 1750px){
+
+    .navAbove > div > img{
+        width: 600px;
+        padding: 0;
+        padding-top: 20px;
+        
+    }
+    
+    #menu > img{
+        display: none;
+    
+    }
+    
+    .hidden{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        margin: 13px;
+        
+        
+        
+    }
+    
+    
+    /*Display the dropdown on hover*/
+    ul li a {
+        color: #138c83; 
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        
+        padding: 60px;
+    }
+    
+    
+    li:hover ul a {
+        color: #138c83; 
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding: 60px;
+        
+        
+        
+    
+    }
+    /*Hover state for dropdown links*/
+    li:hover ul a:hover {
+        color: #fff;
+        background-color: #138c83;
+    }
+    
+    /*Hide dropdown links until they are needed*/
+    li ul {
+        display: none;
+        background: rgb(219, 227, 231);
+        
+        
+    }
+    
+    li ul li:hover {
+        background: #138c83; 
+        padding: 0px;
+    
+        
+    }
+    
+    /*Make dropdown links vertical*/
+    li ul li {
+        display: block;
+        float: none;
+        padding: 0px;
+        
+        
+        
+    }
+    /*Prevent text wrapping*/
+    li ul li a {
+        width: 200px;
+        min-width: 100%;
+        font-size: 40px;
+        text-decoration: none;
+        
+        
+    }
+    /*Display the dropdown on hover*/
+    ul li a:hover + .hidden, .hidden:hover {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly; 
+    }
+
+    
+    
+
+}
+    

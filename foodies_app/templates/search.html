@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./../static/css/dashboard.css') }}">
+    <link rel="stylesheet" href="./../static/css/dashboard.css">
+
+    <title>Search</title>
+</head>
+<body>
+        <nav>
+            <section class="navAbove">
+                <div><img src="./../static/img/foodiesGreen.png" alt=""></div>
+                <div class="topnav">
+                    <ul id="menu">
+                        <li>
+                            <a id= "menu" href=""><img src="./../static/img/menu-green.png" alt=""></a>
+                            <ul class="hidden">
+                                <li><a href="">new</a></li>
+                                <li><a href="">search</a></li>
+                                <li><a href="">account</a></li>
+                                <li><a href="">logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </nav>
+
+        <main>    
+        <section class="table">
+            <form action="">
+                <div class="searhBar">
+                    <div>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="searchType">
+                        <h4>search by:</h4>
+                        <select name="searh" id="">
+                            <option value="">-- category--</option>
+                            <option value="name">Restaurant name</option>
+                            <option value="user">Creator</option>
+                            <option value="likes">Most Liked</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit">
+                            submit
+                        </button>
+                    </div>
+            </form>
+            </div>
+        </section>
+        <section class="recomendations">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="favtable">Results</th>
+                    </tr>
+                    <tr>
+                        <th class="line2">Restaurant</th>
+                        <th class="line2">Location</th>
+                        <th class="line2">Likes</th>
+                        <th class="line2">Creator</th>
+                        <th id="outerline1" class="line1">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for element in tree %}
+                    <tr>
+                        <td class="b4">
+                            <a href="/show/{{ element.id }}">name</a>
+                        </td>
+                        <td class="b4">location</td>
+                        <td class="b4">0</td>
+                        <td class="b4" class="b3">name</td>
+                        <td id="outerline1" class="b3"><a class="actions" href="">add</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+</body>
+</html>

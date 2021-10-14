@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 80px;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    width: 1900px;
+    margin-bottom: 130px;
+}
+
+nav > section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1{
+    font-size: 70px;
+}
+
+h2{
+    font-size: 50px;
+    margin-bottom: 50px;
+    margin-right: 1600px;
+}
+
+.leftSide{
+    width: 800px;
+}
+
+form > h1{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+table{
+    width: 1900px;
+}
+
+
+
+button > a{
+    text-decoration: none;
+    color: black;
+}
+
+.logout{
+    font-size: 35px;
+    background-color:tomato;
+    border: 5px solid black;
+    border-radius: 10px;
+    box-shadow: 7px 7px rgb(0, 0, 0);
+    width: 230px;
+    height: 80px;
+}
+
+.plan_tree, .dashboard, .buttonTree{
+    font-size: 35px;
+    background-color:rgb(39, 189, 181);
+    border: 5px solid black;
+    border-radius: 10px;
+    box-shadow: 7px 7px rgb(0, 0, 0);
+    width: 300px;
+    height: 80px;
+    margin-right: 50px;
+}
+
+
+button:hover{
+    cursor: pointer;
+    background-color:lightskyblue;
+    color: white;
+}
+
+.navBelow{
+    margin-top: 40px;
+}
+
+.navBelow > p{
+    font-size: 40px;
+    padding-top: 30px;
+}
+
+.righNavTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.righNavTop > a{
+    font-size: 40px;
+    color: lightseagreen;
+    padding-top: 23px;
+    padding-right: 70px;
+}
+
+tbody > tr{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    margin-top: 40px;
+}
+
+tbody > tr > td{
+    margin-top: 50px;
+    font-size: 35px;
+}
+
+thead > tr > th{
+    font-size: 60px;
+    text-align: start;
+    border-bottom: 3px solid black;
+    padding-bottom: 15px;
+}
+
+strong{
+    font-size: 60px;
+    font-weight: bolder;
+    color: darkcyan;
+}

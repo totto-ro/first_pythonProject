@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./../static/css/account.css') }}">
+    <link rel="stylesheet" href="./../static/css/account.css">
+    <title>Account</title>
+</head>
+<body>
+    <nav>
+        <section class="navAbove">
+            <div><img src="./../static/img/foodiesGreen.png" alt=""></div>
+            <div class="topnav">
+                <ul id="menu">
+                    <li>
+                        <a id= "menu" href=""><img src="./../static/img/menu-green.png" alt=""></a>
+                        <ul class="hidden">
+                            <li><a href="">new</a></li>
+                            <li><a href="">search</a></li>
+                            <li><a href="">account</a></li>
+                            <li><a href="">logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </nav>
+
+    <main>    
+    <section class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th class="titleTable">Your Account</th>
+                </tr>
+                <tr class="tableTileSpace">
+                    <th class="line1">First Name</th>
+                    <th class="line1">Last Name</th>
+                    <th class="line1">Email</th>
+                    <th class="line1">Password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for element in  %}
+                <tr>
+                    <td class="b3">first name</td>
+                    <td class="b3">last name</td>
+                    <td class="b3">email</td>
+                    <td class="b3">password</td>
+                    <td id="outerline" class="b3"> 
+                        <div> 
+                            <a class="actions" href="">edit</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    <section class="recomendations">
+        <table>
+            <thead>
+                <tr>
+                    <th class="favtable">Like history</th>
+                </tr>
+                <tr>
+                    <th class="line2">Restaurants</th>
+                    <th class="line2">Location</th>
+                    <th  id="outerline1" class="line1">Likes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for element in tree %}
+                <tr class="secondTR">
+                    <td class="b4">
+                        <a href="/show/{{ element.id }}">name</a>
+                    </td>
+                    <td class="b4">location</td>
+                    <td id="outerline1" class="b3">0</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+</main>
+</body>
+</html>
