@@ -17,10 +17,10 @@
                     <li>
                         <a id= "menu" href=""><img src="./../static/img/menu-green.png" alt=""></a>
                         <ul class="hidden">
-                            <li><a href="">new</a></li>
-                            <li><a href="">search</a></li>
-                            <li><a href="">account</a></li>
-                            <li><a href="">logout</a></li>
+                            <li><a href="/dashboard">dashboard</a></li>
+                            <li><a href="/new/restaurant">new</a></li>
+                            <li><a href="/search">search</a></li>
+                            <li><a href="/logout">logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -39,20 +39,18 @@
                     <th class="line1">First Name</th>
                     <th class="line1">Last Name</th>
                     <th class="line1">Email</th>
-                    <th class="line1">Password</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                {% for element in  %}
+                {% for element in user %}
                 <tr>
-                    <td class="b3">first name</td>
-                    <td class="b3">last name</td>
-                    <td class="b3">email</td>
-                    <td class="b3">password</td>
+                    <td class="b3">{{ element.first_name }}</td>
+                    <td class="b3">{{ element.last_name }}</td>
+                    <td class="b3">{{ element.email }}</td>
                     <td id="outerline" class="b3"> 
                         <div> 
-                            <a class="actions" href="">edit</a>
+                            <a class="actions" href="/edit">edit</a>
                         </div>
                     </td>
                 </tr>
@@ -73,7 +71,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for element in tree %}
+                {% for element in user %}
                 <tr class="secondTR">
                     <td class="b4">
                         <a href="/show/{{ element.id }}">name</a>

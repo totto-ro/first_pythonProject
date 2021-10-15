@@ -17,10 +17,11 @@
                     <li>
                         <a id= "menu" href=""><img src="./../static/img/menu-green.png" alt=""></a>
                         <ul class="hidden">
-                            <li><a href="">new</a></li>
-                            <li><a href="">search</a></li>
-                            <li><a href="">account</a></li>
-                            <li><a href="">logout</a></li>
+                            <li><a href="/dashboard">dashboard</a></li>
+                            <li><a href="/search">search</a></li>
+                            <li><a href="/account">account</a></li>
+                            <li><a href="/logout">logout</a></li>
+                            
                         </ul>
                     </li>
                 </ul>
@@ -30,10 +31,10 @@
 
     <main>    
         <section class="leftSide">
-            <form class="plantTree" action="/create/tree" method="POST">
+            <form class="plantTree" action="/create/restaurant" method="POST">
                 <h1>Save your favorite restaurant</h1>
                 <ul class="addRest">
-                {% with messages = get_flashed_messages(category_filter=['tree']) %}
+                {% with messages = get_flashed_messages(category_filter=['restaurant']) %}
                     {% if messages %}
                     <li class="addInfo">
                         <strong>Uupss!</strong>
@@ -62,7 +63,7 @@
                         <input type="text" id="reason" name="reason" />
                     </li>
                     <li>
-                        <button class= "save" type="submit" value="add_tree">
+                        <button class= "save" type="submit" value="add_restaurant">
                             Save
                         </button>
                     </li>

@@ -7,7 +7,7 @@ main{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 80px;
+    margin-top: 300px;
     height: 100%;
     font-family: sans-serif;
 }
@@ -38,7 +38,7 @@ nav{
 }
 
 .newRegister > ul{
-    background-color:rgb(96, 160, 212);
+    background-color: #d9c2a8;
     display: flex;
     flex-direction: column;
     align-content: space-around;
@@ -50,17 +50,21 @@ nav{
 }
 
 li > h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 80px;
-    color: azure;
+    color: #138c8c;
     margin-bottom: 25px;
 }
 
 li{
     margin: 30px;
     font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:  #7a7774;
 }
 
 .addInput{
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -74,23 +78,23 @@ li{
 
 button{
     font-size: 35px;
-    padding: 20px;
-    background-color:lightseagreen;
-    border: 5px solid black;
-    border-radius: 10px;
-    box-shadow: 7px 7px rgb(0, 0, 0);
+    padding: 20px;;
+    border-radius: 5px;
     width: 250px;
     margin-top: 50px;
+    border: 0;
+    background-color: #138c8c;
+    color: white;
 }
 
 button:hover{
-    background-color:orange;
+    background-color: #1ec7c7;
     color: azure;
     cursor: pointer;
 }
 
 .userLogin > ul{
-    background-color:rgb(96, 160, 212);
+    background-color:#d9c2a8;
     display: flex;
     flex-direction: column;
     align-content: space-around;

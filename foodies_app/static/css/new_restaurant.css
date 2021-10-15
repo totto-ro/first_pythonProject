@@ -283,10 +283,10 @@ tbody > tr >td >a{
     font-size: 70px;
     border: none;
     background-color: #51aaa4;
-    color: #0b625d;
+    color: #c2f1ee;
     margin-top: 50px;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 
@@ -324,6 +324,7 @@ form > h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 80px;
     color: #138c83;
+    margin-bottom: 60px;
 }
 
 form{
@@ -355,11 +356,13 @@ thead > tr{
     flex-direction: column;
     justify-content: space-between;
     padding-top: 30px;
+    color: #7a7774;
+    margin-bottom: 50px;
 }
 
 .addInfo > input, select{
     width: 650px;
-    margin-top: 20px;
+    margin-top: 40px;
     font-size: 50px;
     padding: 10px 20px 10px 20px;
 }

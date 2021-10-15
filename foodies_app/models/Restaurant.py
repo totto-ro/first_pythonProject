@@ -7,73 +7,115 @@ class Restaurant:
         self.name = data['name']
         self.location = data['location']
         self.reason = data['reason']
-        self.date_planted = data['date_planted']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.user_id = data['user_id']
+        self.first_name = data ['first_name']
+        self.fav_restaurants = []
+
+
         
 
-    @classmethod
-    def get_all( cls ):
-        query = "SELECT* FROM trees LEFT JOIN users ON users.id = trees.user_id;"
-        results =  connectToMySQL('arbortrary_db').query_db(query)
-        all_trees = []
-        for row in results:
-            print(row['first_name'], row['last_name'])
-            all_trees.append( cls(row) )
-        return all_trees
+    # @classmethod
+    # def get_all( cls ):
+    #     query = "SELECT* FROM restaurants LEFT JOIN users ON users.id = restaurants.user_id;"
+    #     results =  connectToMySQL('foodies_db').query_db(query)
+    #     all_trees = []
+    #     for row in results:
+    #         print(row['first_name'], row['last_name'])
+    #         all_trees.append( cls(row) )
+    #     return all_trees
 
 
     @classmethod
     def save( cls, data ):
-        query = "INSERT INTO trees(name, location, reason, date_planted, user_id) VALUES(%(name)s, %(location)s, %(reason)s, %(date_planted)s, %(user_id)s);"
-        results = connectToMySQL( 'arbortrary_db' ).query_db( query, data )
+        query = "INSERT INTO restaurants(name, location, reason, user_id) VALUES(%(name)s, %(location)s, %(reason)s, %(user_id)s);"
+        results = connectToMySQL( 'foodies_db' ).query_db( query, data )
         print( results )
         return results
 
     @staticmethod
-    def validation_tree( tree ):
+    def validation_restaurant( restaurant ):
         is_valid = True
-        if len(tree['name']) < 5:
+        if len(restaurant['name']) < 3:
             is_valid = False
-            flash("Name must be at least 5 characters","tree")
-        if len(tree['location']) < 2:
+            flash("Name must be at least 3 characters","restaurant")
+        if len(restaurant['location']) < 2:
             is_valid = False
-            flash("Location must be at least 2 characters","tree")
-        if len(tree['reason']) >= 50:
+            flash("Location must be at least 2 characters","restaurant")
+        if len(restaurant['reason']) >= 50:
             is_valid = False
-            flash("Reason can't surpass 50 characters","tree")
-        if tree['date_planted'] == "":
-            is_valid = False
-            flash("You most enter a date","tree")
+            flash("Reason can't surpass 50 characters","restaurant")
         return is_valid
 
     @classmethod
-    def allTrees_by_userID( cls, data ):
-        query = "SELECT * FROM trees WHERE user_id = %(id)s;"
-        results = connectToMySQL( 'arbortrary_db' ).query_db( query, data )
-        print(results)
-        trees = []
+    def allRestaurants_by_userID( cls, data ):
+        query = "SELECT* FROM restaurants LEFT JOIN users ON users.id = restaurants.user_id WHERE restaurants.id NOT IN  ( SELECT restaurants.id FROM restaurants WHERE restaurants.user_id = %(id)s ) GROUP BY users.id ORDER BY restaurants.created_at;"
+        results = connectToMySQL( 'foodies_db' ).query_db( query, data )
+        restaurants = []
         for row in results:
-            trees.append( cls(row) )
-        return trees
+            restaurants.append( cls(row) )
+        return restaurants
 
     @classmethod
-    def get_userID( cls,data ):
-        query = "SELECT * FROM trees WHERE trees.id = %(id)s;"
-        results = connectToMySQL( 'arbortrary_db' ).query_db(query,data)
-        print(results)
-        return cls( results[0] )
+    def get_fav_list( cls, data ):
+        query = "SELECT* FROM restaurants LEFT JOIN favorites ON restaurants.id = favorites.restaurant_id LEFT JOIN users ON users.id = favorites.user_id  WHERE users.id = %(id)s;"
+        results = connectToMySQL( 'foodies_db' ).query_db( query, data )
+        print (results, "helloooo")
+        restaurant = cls(results[0])
+        print (restaurant, "pointttttttingHereeeeeeeeeeeeeeeee")
 
-    @classmethod
-    def update( cls, data ):
-        query = "UPDATE trees SET name=%(name)s, location=%(location)s, reason=%(reason)s, date_planted=%(date_planted)s,updated_at=NOW() WHERE id = %(id)s;"
-        return connectToMySQL( 'arbortrary_db' ).query_db( query,data )
+        for row in results:
+            if row['users.id'] == None:
+                break
+            data = {
+                "id": row['id'],
+                "first_name": row['first_name'],
+                "last_name" : row['last_name'],
+                "email": row['email'],
+                "password" : row['password'],
+                "created_at" : row['created_at'],
+                "updated_at" : row['updated_at']
+            }
 
-    @classmethod
-    def destroy( cls, data ):
-        query = "DELETE FROM trees WHERE trees.id = %(id)s;"
-        return connectToMySQL( 'arbortrary_db' ).query_db( query,data )
+        restaurant.fav_restaurants.append( Restaurant( data ) )
+        print ("herrreeeeeeeeeeeeeeeeeee")  
+        return restaurant
+    
+
+    
+
+
+
+
+
+
+    # @classmethod
+    # def allRestaurants_by_userID( cls, data ):
+    #     query = "SELECT * FROM restaurants WHERE user_id = %(id)s;"
+    #     results = connectToMySQL( 'foodies_db' ).query_db( query, data )
+    #     print(results)
+    #     restaurants = []
+    #     for row in results:
+    #         restaurants.append( cls(row) )
+    #     return restaurants
+
+    # @classmethod
+    # def get_userID( cls,data ):
+    #     query = "SELECT * FROM restaurants WHERE restaurants.id = %(id)s;"
+    #     results = connectToMySQL( 'foodies_db' ).query_db(query,data)
+    #     print(results)
+    #     return cls( results[0] )
+
+    # @classmethod
+    # def update( cls, data ):
+    #     query = "UPDATE restaurants SET name=%(name)s, location=%(location)s, reason=%(reason)s, updated_at=NOW() WHERE id = %(id)s;"
+    #     return connectToMySQL( 'foodies_db' ).query_db( query,data )
+
+    # @classmethod
+    # def destroy( cls, data ):
+    #     query = "DELETE FROM restaurants WHERE restaurants.id = %(id)s;"
+    #     return connectToMySQL( 'foodies_db' ).query_db( query,data )
         
 
     

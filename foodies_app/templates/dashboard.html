@@ -5,23 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='./../static/css/dashboard.css') }}">
-    <link rel="stylesheet" href="./../static/css/dashboard.css">
 
     <title>Dashboard</title>
 </head>
 <body>
         <nav>
             <section class="navAbove">
-                <div><img src="./../static/img/foodiesGreen.png" alt=""></div>
+                <div><img src="{{ url_for('static', filename='./../static/img/foodiesGreen.png') }}" alt="foodiesIcon"></div>
                 <div class="topnav">
                     <ul id="menu">
                         <li>
-                            <a id= "menu" href=""><img src="./../static/img/menu-green.png" alt=""></a>
+                            <a id= "menu" href=""><img src="{{ url_for('static', filename='./../static/img/menu-green.png') }}" alt="hamburgerIconMenu"></a>
                             <ul class="hidden">
-                                <li><a href="">new</a></li>
-                                <li><a href="">search</a></li>
-                                <li><a href="">account</a></li>
-                                <li><a href="">logout</a></li>
+                                <li><a href="/new/restaurant">new</a></li>
+                                <li><a href="/search">search</a></li>
+                                <li><a href="/account">account</a></li>
+                                <li><a href="/logout">logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -34,23 +33,25 @@
             <table>
                 <thead>
                     <tr>
-                        <th class="titleTable">Today recommendations</th>
+                        <th class="titleTable">Today's recommendations for <span>{{user.first_name}}</span></th>
                     </tr>
                     <tr>
                         <th class="line1">Restaurant</th>
                         <th class="line1">Location</th>
+                        <th class="line1">Sugested by</th>
                         <th class="line1">Likes</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for element in tree %}
+                    {% for element in restaurant%}
                     <tr>
                         <td class="b3">
-                            <a href="/show/{{ element.id }}">name</a>
+                            <a href="/show/{{ element.id }}">{{element.name}}</a>
                         </td>
-                        <td class="b3">location</td>
-                        <td class="b3">0</td>
+                        <td class="b3">{{ element.location }}</td>
+                        <td class="b3">{{ element.first_name }}</td>
+                        <td class="b3">{{ element.likes }}</td>
                         <td id="outerline" class="b3"> 
                             <div> 
                                 <a class="actions" href="">add</a>
@@ -66,7 +67,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th class="favtable">Favorite restaurants</th>
+                        <th class="favtable"> <span>{{user.first_name}}'s</span> favorite restaurants</th>
                     </tr>
                     <tr>
                         <th class="line2">Restaurant</th>
@@ -75,13 +76,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for element in tree %}
+                    {% for element in fav_restaurant %}
                     <tr>
                         <td class="b4">
-                            <a href="/show/{{ element.id }}">name</a>
+                            <a href="/show/{{ element.id }}">{{element.name}}</a>
                         </td>
-                        <td class="b4">location</td>
-                        <td id="outerline1" class="b3">0</td>
+                        <td class="b4">{{ element.location }}</td>
+                        <td id="outerline1" class="b3">{{ element.likes }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -89,9 +90,9 @@
         </section>
         <section class="footPage">
             <div>
-                <img src="./../static/img/pattern-food.jpg" alt="">
+                <img src="{{ url_for('static', filename='./../static/img/pattern-food.jpg') }}" alt="spieciesImage">
                 <div class="circles"></div>
-                <img src="./../static/img/table-nature-plant-raspberry-fruit-berry-1193304-pxhere.com.jpg" alt="">
+                <img src="{{ url_for('static', filename='./../static/img/table-nature-plant-raspberry-fruit-berry-1193304-pxhere.com.jpg') }}" alt="berriesImage">
             </div>
         </section>
 
